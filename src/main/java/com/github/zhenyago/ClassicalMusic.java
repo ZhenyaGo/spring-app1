@@ -5,4 +5,12 @@ public class ClassicalMusic implements Music {
     public String getSong() {
         return "Hungarian Rhapsody";
     }
+
+    public void doMyInit() {
+        System.out.println("doing my initialisation");
+    }
+
+    public void doMyDestroy() {
+        System.out.println("doing my destruction");
+    }
 }

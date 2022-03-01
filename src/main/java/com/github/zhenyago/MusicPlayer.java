@@ -1,25 +1,26 @@
 package com.github.zhenyago;
 
-import java.util.List;
+import java.util.Objects;
 
 public class MusicPlayer {
 
-    private List<Music> musicList;
+    private Music music;
 
     private String name;
 
     private int Volume;
 
-    public List<Music> getMusicList() {
-        return musicList;
-    }
-
-    public void setMusicList(List<Music> musicList) {
-        this.musicList = musicList;
+    //IoC
+    public MusicPlayer(Music music) {
+        this.music = music;
     }
 
     public MusicPlayer() {
 
+    }
+
+    public void setMusic(Music music) {
+        this.music = music;
     }
 
     public String getName() {
@@ -39,13 +40,6 @@ public class MusicPlayer {
     }
 
     public void playMusic() {
-        for(Music n: musicList) {
-            System.out.println("Playing " + n.getSong());
-            try {
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                System.out.println(e.getMessage());
-            }
-        }
+        System.out.println("Playing " + music.getSong());
     }
 }
