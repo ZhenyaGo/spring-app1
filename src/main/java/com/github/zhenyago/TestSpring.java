@@ -10,6 +10,9 @@ public class TestSpring {
         Computer computer = applicationContext.getBean(Computer.class);
         System.out.println(computer);
 
+        MusicPlayer musicPlayer = applicationContext.getBean(MusicPlayer.class);
+        System.out.println(musicPlayer.getPlayList().size());
+
         applicationContext.close();
     }
 }

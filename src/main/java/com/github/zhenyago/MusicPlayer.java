@@ -1,12 +1,25 @@
 package com.github.zhenyago;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
+@Component
 public class MusicPlayer {
+
+    @Autowired
+    ClassicalMusic classicalMusic;
+
+    @Autowired
+    RockMusic rockMusic;
+
+    @Autowired
+    RapMusic rapMusic;
 
     @Value("${musicPlayer.name}")
     private String name;
@@ -14,9 +27,14 @@ public class MusicPlayer {
     @Value("${musicPlayer.volume}")
     private int volume;
 
-    private List<Music> playList;
+    @Autowired
+    List<Music> playList;
 
-    public MusicPlayer(List<Music> playList) {
+    public List<Music> getPlayList() {
+        return playList;
+    }
+
+    public void setPlayList(List<Music> playList) {
         this.playList = playList;
     }
 

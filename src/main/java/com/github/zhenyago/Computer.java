@@ -1,6 +1,8 @@
 package com.github.zhenyago;
 
+import org.springframework.stereotype.Component;
 
+@Component
 public class Computer {
 
     private int id;
