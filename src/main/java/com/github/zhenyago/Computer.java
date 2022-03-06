@@ -1,8 +1,6 @@
 package com.github.zhenyago;
 
-import org.springframework.stereotype.Component;
 
-@Component
 public class Computer {
 
     private int id;
@@ -13,8 +11,8 @@ public class Computer {
         id = 1;
     }
 
-//    @Override
-//    public String toString() {
-//        return "Computer " + id + " " + musicPlayer.playMusic();
-//    }
+    @Override
+    public String toString() {
+        return "Computer " + id + " " + musicPlayer.playMusic();
+    }
 }

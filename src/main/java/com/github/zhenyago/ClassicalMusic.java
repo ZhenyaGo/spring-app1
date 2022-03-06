@@ -6,7 +6,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
-@Component
 public class ClassicalMusic implements Music {
 
     private final List<String> classicalPlayList = new ArrayList<>(Arrays.asList("Hungarian Rhapsody",

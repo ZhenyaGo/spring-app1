@@ -1,24 +1,20 @@
 package com.github.zhenyago;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
-@Component
 public class MusicPlayer {
 
-    @Autowired
-    private ClassicalMusic classicalMusic;
+    private List<Music> playList;
 
-    @Autowired
-    private RockMusic rockMusic;
+    public MusicPlayer(List<Music> playList) {
+        this.playList = playList;
+    }
 
-    public String playMusic(MusicGenre musicGenre) {
-        if(musicGenre.equals(MusicGenre.CLASSICAL)) {
-            return "Playing " + classicalMusic.getSong();
-        } else {
-            return "Playing " + rockMusic.getSong();
-        }
+    public String playMusic() {
+       Random random = new Random();
+       return "Playing " + playList.get(random.nextInt(playList.size())).getSong();
     }
 }
