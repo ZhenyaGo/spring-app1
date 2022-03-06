@@ -2,10 +2,13 @@ package com.github.zhenyago;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 
 import java.util.Arrays;
+import java.util.List;
 
 @Configuration
+@PropertySource("classpath:musicPlayer.properties")
 public class AppConfig {
 
     @Bean
@@ -24,8 +27,13 @@ public class AppConfig {
     }
 
     @Bean
+    public List<Music> playList() {
+        return Arrays.asList(getClassicalMusic(),getRockMusic(), getRapMusic());
+    }
+
+    @Bean
     public MusicPlayer getMusicPlayer() {
-        return new MusicPlayer(Arrays.asList(getClassicalMusic(),getRockMusic(), getRapMusic()));
+        return new MusicPlayer(playList());
     }
 
     @Bean
